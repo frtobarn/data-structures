@@ -1,0 +1,34 @@
+python -m venv data_estructures
+
+windows
+.\data_structures\Scripts\activate
+linux
+source data_structures/bin/activate
+
+ 
+pip install pyinstaller
+
+pip install pymupdf pillow
+pip freeze > requirements.txt
+
+VisualizarEstructuras/
+├── app/                      
+│   ├── __init__.py           ← marca `app` como paquete
+│   ├── layout.py
+│   ├── main.py               ← movido aquí, pero importará desde `app`
+│   ├── visor_pdf.py
+│   ├── visor_codigo.py
+│   ├── heap_demo.py
+│   └── monticulos.py         ← definimos aquí la lógica de Montículos
+├── assets/
+│   ├── ejemplos_codigo/
+│   │   └── Heaps.py          ← solo para mostrar con CodeViewer
+│   └── requisitos/
+│       └── Heaps.pdf
+└── requirements.txt
+
+pyinstaller --onefile --windowed --icon=carpeta.png  --name VisualizarEstructuras --add-data "assets;assets" run.py
+
+
+
+
