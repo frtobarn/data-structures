@@ -10,7 +10,7 @@ BASE = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
 class Layout(tk.Frame):
     def __init__(self, master):
-        super().__init__(master)
+        super().__init__(master)  
 
         # ——— Menú superior ———
         menu = tk.Frame(self, height=50)
@@ -29,7 +29,9 @@ class Layout(tk.Frame):
         self.impl_frame = tk.Frame(panes); panes.add(self.impl_frame, minsize=300)
 
         # ——— Visores iniciales ———
-        self.pdf_viewer  = PDFViewer(self.pdf_frame)
+        self.pdf_container = tk.Frame(self.pdf_frame)
+        self.pdf_container.place(relx=0, rely=0, relwidth=1, relheight=1)
+        self.pdf_viewer  = PDFViewer(self.pdf_container)
         self.pdf_viewer.pack(expand=True, fill="both")
         self.code_viewer = CodeViewer(self.impl_frame)
         self.code_viewer.pack(expand=True, fill="both")
