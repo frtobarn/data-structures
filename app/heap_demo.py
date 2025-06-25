@@ -1,7 +1,6 @@
-# app/heap_demo.py
 import tkinter as tk
 from tkinter import messagebox
-from .monticulos import Monticulos   # <- import relativo de tu clase de lógica
+from .monticulos import Monticulos   # <- import relativo de clase de lógica
 
 class HeapDemo(tk.Frame):
     def __init__(self, master):

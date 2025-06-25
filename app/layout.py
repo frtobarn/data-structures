@@ -1,4 +1,3 @@
-# app/layout.py
 import tkinter as tk
 from tkinter import ttk, messagebox
 import os
@@ -16,7 +15,7 @@ class Layout(tk.Frame):
         # ——— Menú superior ———
         menu = tk.Frame(self, height=50)
         menu.pack(side="top", fill="x")
-        tk.Label(menu, text="Heaps:").pack(side="left", padx=5)
+        tk.Label(menu, text="Estructuras:").pack(side="left", padx=5)
         self.combo = ttk.Combobox(menu, values=["Heaps (Montículo de Prioridad)"])
         self.combo.current(0)
         self.combo.pack(side="left")
@@ -60,7 +59,7 @@ class Layout(tk.Frame):
             return
 
         # Reinicia el demo interactivo (limpia estado anterior)
-        self.demo.reset()  # Necesitas implementar un método reset en HeapDemo
+        self.demo.reset()  
         self.btn_modal.config(state="normal")
 
     def _show_modal(self):
