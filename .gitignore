@@ -1,0 +1,41 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Entorno virtual
+data_structures/
+venv/
+.env/
+.env
+
+# PyInstaller build artifacts
+build/
+dist/
+VisualizarEstructuras.spec
+
+# Distribución / empaquetado
+*.egg-info/
+*.egg
+*.whl
+
+# Logs y bases de datos
+*.log
+*.sqlite3
+
+# Configuraciones de IDE / editores
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Backups / temp
+*~
+*.swp
