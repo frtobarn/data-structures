@@ -6,6 +6,7 @@ from .arbol_binario_completo_demo import ArbolBinarioCompletoDemo
 from .heapsort_demo import HeapSortDemo
 from .pilas_demo import PilasDemo
 from .colas_demo import ColasDemo
+from .matrices_demo import MatricesDemo
 
 class DemoManager(tk.Frame):
     def __init__(self, master):
@@ -22,6 +23,7 @@ class DemoManager(tk.Frame):
             "HeapSort": HeapSortDemo,
             "Pilas": PilasDemo,
             "Colas": ColasDemo,
+            "Matrices": MatricesDemo,
             # Agregar más demos aquí conforme se creen
             # "Colas": ColasDemo,
             # etc.
