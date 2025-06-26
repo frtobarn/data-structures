@@ -54,16 +54,20 @@ class Layout(tk.Frame):
         self.pdf_container.place(relx=0, rely=0, relwidth=1, relheight=0.9)
         self.pdf_viewer  = PDFViewer(self.pdf_container)
         self.pdf_viewer.pack(expand=True, fill="both")
-        self.code_viewer = CodeViewer(self.impl_frame)
-        self.code_viewer.pack(expand=True, fill="both")
 
-        # ——— Demo interactivo ———
-        self.demo_manager = DemoManager(self.impl_frame)
-        self.demo_manager.pack(expand=True, fill="both", pady=(5,40))
+        # Panel derecho: dividir en code_viewer (30%) y demo (70%)
+        self.right_container = tk.Frame(self.impl_frame)
+        self.right_container.place(relx=0, rely=0, relwidth=1, relheight=0.93)
+
+        self.code_viewer = CodeViewer(self.right_container)
+        self.code_viewer.place(relx=0, rely=0, relwidth=1, relheight=0.3)
+
+        self.demo_manager = DemoManager(self.right_container)
+        self.demo_manager.place(relx=0, rely=0.3, relwidth=1, relheight=0.7)
 
         # ——— Botón modal ———
         footer = tk.Frame(self.impl_frame)
-        footer.pack(side="bottom", fill="x")
+        footer.place(relx=0, rely=0.93, relwidth=1, relheight=0.07)
         self.btn_modal = tk.Button(footer, text="Ver código completo", state="disabled",
                                    command=self._show_modal)
         self.btn_modal.pack()
