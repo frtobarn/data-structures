@@ -4,7 +4,7 @@ import os
 
 from .visor_pdf    import PDFViewer
 from .visor_codigo import CodeViewer
-from .heap_demo    import HeapDemo
+from .demo_manager import DemoManager
 
 BASE = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
@@ -58,8 +58,8 @@ class Layout(tk.Frame):
         self.code_viewer.pack(expand=True, fill="both")
 
         # ——— Demo interactivo ———
-        self.demo = HeapDemo(self.impl_frame)
-        self.demo.pack(expand=True, fill="both", pady=(5,40))
+        self.demo_manager = DemoManager(self.impl_frame)
+        self.demo_manager.pack(expand=True, fill="both", pady=(5,40))
 
         # ——— Botón modal ———
         footer = tk.Frame(self.impl_frame)
@@ -82,8 +82,8 @@ class Layout(tk.Frame):
             messagebox.showerror("Error al cargar estructura", f"Error cargando {name}: {str(e)}")
             return
 
-        # Reinicia el demo interactivo (limpia estado anterior)
-        self.demo.reset()  
+        # Cambiar al demo correspondiente
+        self.demo_manager.show_demo(name)
         self.btn_modal.config(state="normal")
 
     def _cargar_ejemplo(self):
@@ -102,3 +102,5 @@ class Layout(tk.Frame):
         viewer = CodeViewer(modal)
         viewer.pack(expand=True, fill="both")
         viewer.load(cf)
+
+
