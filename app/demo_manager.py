@@ -1,8 +1,10 @@
 import tkinter as tk
 from .heap_demo import HeapDemo
 from .listas_demo import ListasDemo
+from .listas_enlazadas_demo import ListasEnlazadasDemo
 from .arbol_binario_completo_demo import ArbolBinarioCompletoDemo
 from .heapsort_demo import HeapSortDemo
+from .pilas_demo import PilasDemo
 
 class DemoManager(tk.Frame):
     def __init__(self, master):
@@ -14,10 +16,11 @@ class DemoManager(tk.Frame):
         self.demo_mapping = {
             "Heaps": HeapDemo,
             "Listas": ListasDemo,
+            "Listas Enlazadas": ListasEnlazadasDemo,
             "Árboles Binarios": ArbolBinarioCompletoDemo,
             "HeapSort": HeapSortDemo,
+            "Pilas": PilasDemo,
             # Agregar más demos aquí conforme se creen
-            # "Pilas": PilasDemo,
             # "Colas": ColasDemo,
             # etc.
         }

@@ -55,15 +55,9 @@ class Layout(tk.Frame):
         self.pdf_viewer  = PDFViewer(self.pdf_container)
         self.pdf_viewer.pack(expand=True, fill="both")
 
-        # Panel derecho: dividir en code_viewer (30%) y demo (70%)
-        self.right_container = tk.Frame(self.impl_frame)
-        self.right_container.place(relx=0, rely=0, relwidth=1, relheight=0.93)
-
-        self.code_viewer = CodeViewer(self.right_container)
-        self.code_viewer.place(relx=0, rely=0, relwidth=1, relheight=0.3)
-
-        self.demo_manager = DemoManager(self.right_container)
-        self.demo_manager.place(relx=0, rely=0.3, relwidth=1, relheight=0.7)
+        # Panel derecho: solo demo (sin code_viewer)
+        self.demo_manager = DemoManager(self.impl_frame)
+        self.demo_manager.place(relx=0, rely=0, relwidth=1, relheight=0.93)
 
         # ——— Botón modal ———
         footer = tk.Frame(self.impl_frame)
@@ -76,12 +70,10 @@ class Layout(tk.Frame):
         """Carga una estructura de datos específica."""
         # Rutas absolutas
         pdf_path  = os.path.join(BASE, "assets", "requisitos", files["pdf"])
-        code_path = os.path.join(BASE, "assets", "ejemplos_codigo", files["code"])
 
-        # Carga PDF y código
+        # Carga PDF
         try:
             self.pdf_viewer.load(pdf_path)
-            self.code_viewer.load(code_path)
         except Exception as e:
             messagebox.showerror("Error al cargar estructura", f"Error cargando {name}: {str(e)}")
             return
@@ -95,16 +87,34 @@ class Layout(tk.Frame):
         self._cargar_estructura("Heaps", self.data_structures["Heaps"])
 
     def _show_modal(self):
-        cf = self.code_viewer.current_file
-        if not cf:
-            messagebox.showwarning("Atención", "No hay código cargado")
+        # Obtener la estructura actualmente seleccionada
+        current_structure = None
+        for name, files in self.data_structures.items():
+            # Verificar si el PDF actual corresponde a esta estructura
+            try:
+                current_pdf = os.path.basename(self.pdf_viewer.doc.name if self.pdf_viewer.doc else "")
+                if current_pdf == files["pdf"]:
+                    current_structure = name
+                    break
+            except:
+                pass
+        
+        if not current_structure:
+            messagebox.showwarning("Atención", "No hay estructura cargada")
+            return
+
+        # Cargar el código de la estructura actual
+        code_path = os.path.join(BASE, "assets", "ejemplos_codigo", self.data_structures[current_structure]["code"])
+        
+        if not os.path.exists(code_path):
+            messagebox.showerror("Error", f"No se encontró el archivo de código: {code_path}")
             return
 
         modal = tk.Toplevel(self)
-        modal.title("Código completo")
+        modal.title(f"Código completo - {current_structure}")
         modal.geometry("800x600")
         viewer = CodeViewer(modal)
         viewer.pack(expand=True, fill="both")
-        viewer.load(cf)
+        viewer.load(code_path)
 
 
