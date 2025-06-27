@@ -31,7 +31,7 @@ VisualizarEstructuras/
 python -m app.main
 
 
-pyinstaller --onefile --windowed --icon=carpeta.png  --name VisualizarEstructuras --add-data "assets;assets" run.py
+pyinstaller --onefile --windowed --icon=icon.png  --name VisualizarEstructuras --add-data "assets;assets" run.py
 
 
 

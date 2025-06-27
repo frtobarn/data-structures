@@ -38,12 +38,20 @@ class ListasDemo(tk.Frame):
         self.result_text = tk.Text(self, height=8, width=50, wrap="word")
         self.result_text.grid(row=6, column=0, columnspan=3, sticky="ew", padx=5, pady=5)
 
+        # --- Consulta de día específico ---
+        tk.Label(self, text="Consultar puntuación de un día específico (0-6):").grid(
+            row=7, column=0, pady=(5, 2), sticky="w")
+        self.e_dia = tk.Entry(self, width=5)
+        self.e_dia.grid(row=7, column=1, sticky="w")
+        btn_dia = tk.Button(self, text="Consultar Día", command=self._consultar_dia)
+        btn_dia.grid(row=7, column=2, padx=5, pady=2, sticky="w")
+
         # --- Casos de prueba ---
         tk.Label(self, text="Casos de prueba:", font=("Arial", 10, "bold")).grid(
-            row=7, column=0, columnspan=3, pady=(10,5), sticky="w")
+            row=8, column=0, columnspan=3, pady=(10,5), sticky="w")
         
         test_frame = tk.Frame(self)
-        test_frame.grid(row=8, column=0, columnspan=3, sticky="ew", padx=5)
+        test_frame.grid(row=9, column=0, columnspan=3, sticky="ew", padx=5)
         
         test_cases = [
             ("Caso 1", "10 15 12 18 20 14 16", "105"),
@@ -118,6 +126,30 @@ class ListasDemo(tk.Frame):
         self.e_scores.delete(0, "end")
         self.e_scores.insert(0, input_val)
         self._run_reto()
+
+    def _consultar_dia(self):
+        """Consulta la puntuación de un día específico (0-6)."""
+        dia_str = self.e_dia.get().strip()
+        if not dia_str.isdigit():
+            messagebox.showwarning("Atención", "Por favor ingresa un número de día válido (0-6)")
+            return
+        dia = int(dia_str)
+        if not (0 <= dia <= 6):
+            messagebox.showwarning("Atención", "El día debe estar entre 0 y 6")
+            return
+        # Obtener las puntuaciones actuales
+        scores_input = self.e_scores.get().strip()
+        try:
+            scores = list(map(int, scores_input.split()))
+        except Exception:
+            messagebox.showerror("Error", "Las puntuaciones deben ser números enteros no negativos")
+            return
+        if len(scores) != 7:
+            messagebox.showerror("Error", "Debes ingresar exactamente 7 puntuaciones para consultar un día")
+            return
+        # Mostrar la puntuación del día
+        puntuacion = scores[dia]
+        self.result_text.insert("end", f"Puntuación del día {dia}: {puntuacion}\n")
 
     def reset(self):
         """Reinicia el demo."""
