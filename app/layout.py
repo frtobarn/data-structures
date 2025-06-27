@@ -21,7 +21,7 @@ class Layout(tk.Frame):
             "Colas": {"pdf": "Colas.pdf", "code": "Colas.py"},
             "Matrices": {"pdf": "Matrices.pdf", "code": "Matrices.py"},
             "Estructuras Secuenciales": {"pdf": "Estructuras secuenciales.pdf", "code": "Estructuras secuenciales.py"},
-            "Árboles Binarios": {"pdf": "Full trees.pdf", "code": "Full_trees.py"},
+            "Árboles Binarios": {"pdf": "Binary Search Trees.pdf", "code": "Binary_Search_Trees.py"},
             "Árboles Completos": {"pdf": "Full trees.pdf", "code": "Full_trees.py"},
             "Árboles AVL (Insert)": {"pdf": "AVL Trees insert -rotate.pdf", "code": "AVL_Trees_insert.py"},
             "Árboles AVL (Delete)": {"pdf": "AVL Trees delete.pdf", "code": "AVL_Trees_delete.py"},
