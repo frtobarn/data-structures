@@ -24,7 +24,8 @@ class Layout(tk.Frame):
             "Árboles Binarios": {"pdf": "Binary Search Trees.pdf", "code": "Binary_Search_Trees.py"},
             "Árboles Completos": {"pdf": "Full trees.pdf", "code": "Full_trees.py"},
             "Árboles AVL": {"pdf": "AVL Trees insert -rotate.pdf", "code": "AVL_Trees_insert.py"},
-            "HeapSort": {"pdf": "HeapSort.pdf", "code": "HeapSort.py"}
+            "HeapSort": {"pdf": "HeapSort.pdf", "code": "HeapSort.py"},
+            "Hash": {"pdf": "Hash.pdf", "code": "Hash.py"}
         }
 
         # ——— Menú superior ———
