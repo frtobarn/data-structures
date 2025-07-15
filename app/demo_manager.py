@@ -10,6 +10,7 @@ from .pilas_demo import PilasDemo
 from .colas_demo import ColasDemo
 from .matrices_demo import MatricesDemo
 from .estructuras_secuenciales_demo import EstructurasSecuencialesDemo
+from .hash_demo import HashDemo
 
 class DemoManager(tk.Frame):
     def __init__(self, master):
@@ -24,12 +25,13 @@ class DemoManager(tk.Frame):
             "Listas Enlazadas": ListasEnlazadasDemo,
             "Árboles Binarios": ArbolBinarioDemo,
             "Árboles Completos": ArbolBinarioCompletoDemo,
-            "Árboles AVL (Insert)": ArbolAVLDemo,
+            "Árboles AVL": ArbolAVLDemo,  # Cambiado de 'Árboles AVL (Insert)' a 'Árboles AVL'
             "HeapSort": HeapSortDemo,
             "Pilas": PilasDemo,
             "Colas": ColasDemo,
             "Matrices": MatricesDemo,
             "Estructuras Secuenciales": EstructurasSecuencialesDemo,
+            "Hash": HashDemo,
             # Agregar más demos aquí conforme se creen
             # "Colas": ColasDemo,
             # etc.

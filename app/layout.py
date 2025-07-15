@@ -14,18 +14,18 @@ class Layout(tk.Frame):
 
         # Mapeo de estructuras de datos disponibles
         self.data_structures = {
-            "Heaps": {"pdf": "Heaps.pdf", "code": "Heaps.py"},
+            "Estructuras Secuenciales": {"pdf": "Estructuras secuenciales.pdf", "code": "Estructuras secuenciales.py"},
             "Listas": {"pdf": "Listas.pdf", "code": "Listas.py"},
+            "Matrices": {"pdf": "Matrices.pdf", "code": "Matrices.py"},
             "Listas Enlazadas": {"pdf": "Listas Enlazadas.pdf", "code": "Listas Enlazadas.py"},
             "Pilas": {"pdf": "Pilas.pdf", "code": "Pilas.py"},
             "Colas": {"pdf": "Colas.pdf", "code": "Colas.py"},
-            "Matrices": {"pdf": "Matrices.pdf", "code": "Matrices.py"},
-            "Estructuras Secuenciales": {"pdf": "Estructuras secuenciales.pdf", "code": "Estructuras secuenciales.py"},
+            "Hash": {"pdf": "Hash.pdf", "code": "Hash.py"},
+            "Heaps": {"pdf": "Heaps.pdf", "code": "Heaps.py"},
             "Árboles Binarios": {"pdf": "Binary Search Trees.pdf", "code": "Binary_Search_Trees.py"},
             "Árboles Completos": {"pdf": "Full trees.pdf", "code": "Full_trees.py"},
             "Árboles AVL": {"pdf": "AVL Trees insert -rotate.pdf", "code": "AVL_Trees_insert.py"},
-            "HeapSort": {"pdf": "HeapSort.pdf", "code": "HeapSort.py"},
-            "Hash": {"pdf": "Hash.pdf", "code": "Hash.py"}
+            "HeapSort": {"pdf": "HeapSort.pdf", "code": "HeapSort.py"}
         }
 
         # ——— Menú superior ———
