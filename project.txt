@@ -2,6 +2,8 @@ python -m venv data_estructures
 
 windows
 .\data_structures\Scripts\activate
+
+
 linux
 source data_structures/bin/activate
 
